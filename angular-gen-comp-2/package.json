@@ -1,0 +1,14 @@
+{
+  "name": "generator-angular-gen-comp-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Madhav",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^0.21.1"
+  }
+}
