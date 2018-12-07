@@ -22,9 +22,9 @@ module.exports = generators.Base.extend({
             this.copy('package.json', 'package.json');
         },
 
-        git: function(){
-            this.copy('.gitignore', '.gitignore');
-        },
+        // git: function(){
+        //     this.copy('.gitignore', '.gitignore');
+        // },
 
         testConfig: function(){
             this.copy('karma.conf.js', 'karma.conf.js');
