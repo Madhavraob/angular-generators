@@ -2,67 +2,70 @@
 var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
-    constructor: function(){
+    constructor: function () {
         generators.Base.apply(this, arguments);
-        
     },
-    initializing: function(){
+    initializing: function () {
     },
-    prompting: function(){
+    prompting: function () {
         this.log('Welcome to generator!');
-            
-            var done = this.async();
-            this.prompt([{
-                type: 'input',
-                name: 'ngappname',
-                message: 'Angular App Name (ng-app)',
-                default: 'app'
-            },
-            {
-                type: 'checkbox',
-                name: 'jslibs',
-                message: 'Which JS libraries would you like to include?',
-                choices: [
-                    {
-                        name: 'lodash',
-                        value: 'lodash',
-                        checked: true
-                    },
-                    {
-                        name: 'Moment.js',
-                        value: 'momentjs',
-                        checked: true
-                    },
-                    {
-                        name: 'Angular-UI Utils',
-                        value: 'angularuiutils',
-                        checked: true
-                    }
-                ]
-            }], function(answers){
-               this.log(answers);
-               this.ngappname = answers.ngappname;
+
+        var done = this.async();
+        this.prompt([{
+            type: 'input',
+            name: 'ngappname',
+            message: 'Angular App Name (ng-app)',
+            default: 'app'
+        },
+        {
+            type: 'checkbox',
+            name: 'jslibs',
+            message: 'Which JS libraries would you like to include?',
+            choices: [
+                {
+                    name: 'lodash',
+                    value: 'lodash',
+                    checked: true
+                },
+                {
+                    name: 'Moment.js',
+                    value: 'momentjs',
+                    checked: true
+                },
+                {
+                    name: 'Angular-UI Utils',
+                    value: 'angularuiutils',
+                    checked: true
+                }
+            ]
+        }], function (answers) {
+            this.log(answers);
+            this.ngappname = answers.ngappname;
             //    this.includeLodash = _.includes(answers.jslibs, 'lodash');
             //    this.includeMoment = _.includes(answers.jslibs, 'momentjs');
             //    this.includeAngularUIUtils = _.includes(answers.jslibs, 'angularuiutils');
-               this.gp = answers.jslibs;
-               done(); 
-            }.bind(this));
-            
+            this.gp = answers.jslibs;
+            done();
+        }.bind(this));
+
     },
-    configuring: function(){
+    configuring: function () {
     },
     writing: {
-        compFiles: function(){
+        compFiles: function () {
             this.fs.copyTpl(
                 this.templatePath('src/app/home/home.component.ts'),
                 this.destinationPath('src/app/home/home.component.ts'),
                 {
                     gridProperties: this.gp
                 });
+            this.fs.copy(
+                this.templatePath('src/app/home/home.component.ts'),
+                this.destinationPath('src/app/home/home.component2.ts'));
+            // this.copy('src/app/home/home.component.ts', 'src/app/home/home.component3.ts');
             this.copy('src/app/home/home.component.html', 'src/app/home/home.component.html');
             this.copy('src/app/home/home.component.css', 'src/app/home/home.component.css');
-            this.copy('src/app/home/home.component.spec.ts', 'src/app/home/home.component.spec.ts');            
+            this.copy('src/app/home/home.component.spec.ts', 'src/app/home/home.component.spec.ts');
         },
 
         // bower: function(){
@@ -79,7 +82,7 @@ module.exports = generators.Base.extend({
         //     bowerJson.dependencies['moment'] = '~2.10.6';
         //     bowerJson.dependencies['angular-ui-utils'] = '~3.0.0';
         //     this.fs.writeJSON('bower.json', bowerJson);
-            
+
         //     this.copy('bowerrc', '.bowerrc');
         // },
 
@@ -131,10 +134,10 @@ module.exports = generators.Base.extend({
         //         this.destinationPath('src/app/about/about.html'));
         // }
     },
-    conflicts: function(){
+    conflicts: function () {
     },
-    install: function(){
+    install: function () {
     },
-    end: function(){
+    end: function () {
     }
 });
