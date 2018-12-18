@@ -44,6 +44,10 @@ module.exports = generators.Base.extend({
             //    this.includeLodash = _.includes(answers.jslibs, 'lodash');
             //    this.includeMoment = _.includes(answers.jslibs, 'momentjs');
             //    this.includeAngularUIUtils = _.includes(answers.jslibs, 'angularuiutils');
+            if (this.ngappname == 'test') {
+                this.composeWith(require.resolve('../../angular-gen/app'));
+            }
+
             this.gp = answers.jslibs;
             done();
         }.bind(this));

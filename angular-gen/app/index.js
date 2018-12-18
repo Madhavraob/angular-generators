@@ -2,23 +2,28 @@
 var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
-    constructor: function(){
+    constructor: function () {
         generators.Base.apply(this, arguments);
-        
+
     },
-    
-    initializing: function(){
+
+    initializing: function () {
+        // this.composeWith(require.resolve('../angular-sub-gen'));
+        // if() {
+        // console.log(this);
+        // this.composeWith(require.resolve('../../angular-gen-comp-2/app'));
+        // }
     },
-    prompting: function(){
+    prompting: function () {
     },
-    configuring: function(){
+    configuring: function () {
     },
     writing: {
-        cliConfig: function(){
+        cliConfig: function () {
             this.copy('.angular-cli.json', '.angular-cli.json');
         },
 
-        packageJSON: function(){
+        packageJSON: function () {
             this.copy('package.json', 'package.json');
         },
 
@@ -26,19 +31,19 @@ module.exports = generators.Base.extend({
         //     this.copy('.gitignore', '.gitignore');
         // },
 
-        testConfig: function(){
+        testConfig: function () {
             this.copy('karma.conf.js', 'karma.conf.js');
             this.copy('protractor.conf.js', 'protractor.conf.js');
         },
 
-        tsConfig: function(){
+        tsConfig: function () {
             this.copy('tsconfig.json', 'tsconfig.json');
             this.copy('tslint.json', 'tslint.json');
             this.copy('.editorconfig', '.editorconfig');
             this.copy('Readme.md', 'Readme.md');
         },
 
-        appFiles: function(){
+        appFiles: function () {
             this.directory('src', 'src');
             this.directory('e2e', 'e2e');
         },
@@ -57,7 +62,7 @@ module.exports = generators.Base.extend({
         //     bowerJson.dependencies['moment'] = '~2.10.6';
         //     bowerJson.dependencies['angular-ui-utils'] = '~3.0.0';
         //     this.fs.writeJSON('bower.json', bowerJson);
-            
+
         //     this.copy('bowerrc', '.bowerrc');
         // },
 
@@ -109,10 +114,10 @@ module.exports = generators.Base.extend({
         //         this.destinationPath('src/app/about/about.html'));
         // }
     },
-    conflicts: function(){
+    conflicts: function () {
     },
-    install: function(){
+    install: function () {
     },
-    end: function(){
+    end: function () {
     }
 });
