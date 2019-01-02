@@ -11,7 +11,8 @@ Steps for generating (scafolding) a project using Yeoman generator
 
 3.cd ./angular-generators/angular-gen
 
-4.npm link
+4.Run below command in above folder (./angular-generators/angular-gen)
+  npm link
 
 5.move to a new folder where angualr project should be scafolded and run below command
   yo angular-gen sample
