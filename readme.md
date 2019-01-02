@@ -6,7 +6,7 @@
 Steps for generating (scafolding) a project using Yeoman generator
 
 1.Instal yeoman generator globally
-npm install --global yo
+/n npm install --global yo
 
 2.git clone https://github.com/Madhavraob/angular-generators.git
 
